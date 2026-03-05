@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人作品集 | zetasshk.fun</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --text-color: #333;
+            --bg-color: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--light-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20minimalist%20portfolio%20background%20with%20abstract%20shapes%20in%20blue%20and%20gray%20tones&image_size=landscape_16_9');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-color);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .project-content p {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact {
+            background-color: var(--light-color);
+            padding: 4rem 0;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            margin: 1rem;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+            }
+
+            .nav-links li {
+                margin: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">zetasshk.fun</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="#projects">作品</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>个人作品集</h1>
+            <p>展示我的项目案例和专业技能</p>
+            <a href="#projects" class="btn">查看作品</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2>关于我</h2>
+        <div class="about-content">
+            <p>我是一名创意设计师/开发者，专注于创建美观、实用的数字产品。我的作品涵盖UI/UX设计、网页开发和创意项目，致力于通过设计解决问题，为用户创造出色的体验。</p>
+            <p>我热爱学习新技术和探索设计趋势，不断提升自己的专业能力，为每个项目带来独特的创意和解决方案。</p>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2>作品案例</h2>
+        <div class="projects">
+            <div class="project-card">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20website%20design%20project%20showcase&image_size=square" alt="项目1" class="project-image">
+                <div class="project-content">
+                    <h3>响应式网站设计</h3>
+                    <p>为客户设计的现代化响应式网站，适配各种设备尺寸，提供流畅的用户体验。</p>
+                    <a href="#" class="project-link">查看详情</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=mobile%20app%20ui%20design%20project&image_size=square" alt="项目2" class="project-image">
+                <div class="project-content">
+                    <h3>移动应用UI设计</h3>
+                    <p>为移动应用设计的直观、美观的用户界面，注重用户体验和交互设计。</p>
+                    <a href="#" class="project-link">查看详情</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=brand%20identity%20design%20project&image_size=square" alt="项目3" class="project-image">
+                <div class="project-content">
+                    <h3>品牌标识设计</h3>
+                    <p>为企业设计的品牌标识和视觉识别系统，传达品牌价值观和形象。</p>
+                    <a href="#" class="project-link">查看详情</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=e-commerce%20website%20design&image_size=square" alt="项目4" class="project-image">
+                <div class="project-content">
+                    <h3>电子商务网站</h3>
+                    <p>为在线商店设计的用户友好型电子商务平台，优化购物体验和转化率。</p>
+                    <a href="#" class="project-link">查看详情</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=portfolio%20website%20design&image_size=square" alt="项目5" class="project-image">
+                <div class="project-content">
+                    <h3>个人作品集网站</h3>
+                    <p>为艺术家和设计师设计的个性化作品集网站，展示他们的创作成果。</p>
+                    <a href="#" class="project-link">查看详情</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=data%20visualization%20dashboard&image_size=square" alt="项目6" class="project-image">
+                <div class="project-content">
+                    <h3>数据可视化仪表板</h3>
+                    <p>为企业设计的数据可视化仪表板，帮助用户直观理解复杂数据。</p>
+                    <a href="#" class="project-link">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>联系方式</h2>
+            <div class="contact-content">
+                <p>如果您对我的作品感兴趣，或者有任何合作机会，欢迎通过以下方式联系我：</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>电子邮件</h3>
+                        <a href="mailto:contact@zetasshk.fun">contact@zetasshk.fun</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>社交媒体</h3>
+                        <a href="#">Instagram</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>LinkedIn</h3>
+                        <a href="#">LinkedIn Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 zetasshk.fun. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
